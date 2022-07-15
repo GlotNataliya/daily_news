@@ -1,0 +1,39 @@
+<%= form_with(model: [:admin_user, newscast]) do |form| %>
+  <% if newscast.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(newscast.errors.count, "error" ) %> prohibited this newscast from being saved:
+      </h2>
+      <ul>
+        <% newscast.errors.each do |error| %>
+          <li>
+            <%= error.full_message %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <% if newscast.image.attached? %>
+      <%= image_tag newscast.image, style: "width: 200px; display: block" %>
+    <% end %>
+
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

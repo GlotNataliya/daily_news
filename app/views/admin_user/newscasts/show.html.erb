@@ -1,0 +1,18 @@
+<p id="notice">
+  <%= notice %>
+</p>
+
+<h1 class="title"><%= @newscast.title %></h1>
+
+<p class="description">
+  <%= @newscast.description %>
+</p>
+
+<p>
+  <% if @newscast.image.attached? %>
+    <%= image_tag @newscast.image, style: "width: 200px; display: block", class: "newscast-image" %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit' , edit_admin_user_newscast_path(@newscast) %> |
+<%= link_to 'Back' , admin_user_newscasts_path %>

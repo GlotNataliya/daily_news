@@ -1,0 +1,43 @@
+// Place all the styles related to the Newscasts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+table {
+	width: 100%;
+	margin-bottom: 20px;
+	border: 1px solid #dddddd;
+	border-collapse: collapse;
+}
+
+.table th {
+	font-weight: bold;
+	padding: 5px;
+	background: #efefef;
+	border: 1px solid #dddddd;
+}
+
+.table td {
+	border: 1px solid #dddddd;
+	padding: 5px;
+  text-align: center;
+}
+
+.newscast-title {
+	text-align: center;
+  margin-top: 60px;
+  margin-bottom: 50px;
+}
+
+.button {
+  margin-left: 30px;
+}
+
+.title,
+.description {
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+
+.newscast-image {
+  margin: 0 auto;
+}

@@ -1,0 +1,54 @@
+<p id="notice">
+  <%= notice %>
+</p>
+
+<h1 class="newscast-title">Last News</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+			<th>Time</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Image</th>
+      <th>Show</th>
+			<th>Edit</th>
+			<th>Destroy</th>
+      <!-- <th colspan="3"></th> -->
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @newscasts.each do |newscast| %>
+      <tr>
+        <td>
+          <%= newscast.created_at %>
+        </td>
+        <td>
+          <%= newscast.title %>
+        </td>
+        <td>
+          <%= newscast.description %>
+        </td>
+        <td>
+          <% if newscast.image.attached? %>
+            <%= image_tag newscast.image, style: "width: 200px" %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to 'Show', admin_user_newscast_path(newscast) %>
+        </td>
+        <td>
+          <%= link_to 'Edit', edit_admin_user_newscast_path(newscast) %>
+        </td>
+        <td>
+          <%= link_to 'Destroy', admin_user_newscast_path(newscast), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Newscast', new_admin_user_newscast_path , class: "button" %>

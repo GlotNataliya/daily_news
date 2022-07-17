@@ -13,3 +13,8 @@
  *= require_tree .
  *= require_self
  */
+.auth {
+  font-size: 25px;
+  text-decoration: none;
+  margin-left: 20px;
+}

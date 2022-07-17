@@ -48,17 +48,19 @@ h6 {
 }
 
 .header__home {
-  font-size: 35px;
+  font-size: 25px;
+  text-decoration: none;
 }
 
 .header__admin {
   font-size: 25px;
   text-decoration: none;
-  color: #000;
 }
 
-.header__admin:hover {
-  opacity: 0.8;
+.header__admin:hover,
+.header__home:hover {
+  background-color: white;
+  color: #000;
 }
 
 /* Intro=================*/

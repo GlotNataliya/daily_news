@@ -3,7 +3,7 @@ class NewscastsController < ApplicationController
     @newscasts = Newscast.all.order(created_at: :desc)
     respond_to do |format|
       format.html
-      format.json { render json: NewscastSerializer.new(@newscasts).serializable_hash[:data].as_json, status: :ok }
+      format.json { render json: NewscastSerializer.new(@newscasts).serializable_hash[:data], status: :ok }
     end
   end
 
@@ -11,7 +11,7 @@ class NewscastsController < ApplicationController
     @newscast = Newscast.find(params[:id])
     respond_to do |format|
       format.html
-      format.json { render json: NewscastSerializer.new(@newscast).serializable_hash[:data][:attributes].as_json, status: :ok }
+      format.json { render json: NewscastSerializer.new(@newscast).serializable_hash[:data], status: :ok }
     end
   end
 end

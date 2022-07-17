@@ -1,14 +1,14 @@
 import React from "react"
-import { BrowserRouter as Router, Route, Routes, Switch } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 import Newscasts from "../components/Newscasts"
+// import Newscast from "../components/Newscast"
 
 const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/newscasts" element={< Newscasts />} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={< Newscasts />} />
+      {/* <Route path="/newscasts/:id" element={< Newscast />} /> */}
+    </Routes>
   );
 }
 

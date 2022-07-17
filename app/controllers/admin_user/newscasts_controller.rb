@@ -1,5 +1,6 @@
 module AdminUser
   class NewscastsController < ApplicationController
+    before_action :authenticate_admin!
     before_action :set_newscast, only: %i[ show edit update destroy ]
 
     # GET /newscasts or /newscasts.json

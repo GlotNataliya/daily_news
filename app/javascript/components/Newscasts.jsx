@@ -1,14 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { useEffect, useState } from "react"
 import { format } from 'date-fns'
-import { Link } from 'react-router-dom'
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Outlet
-} from "react-router-dom";
 import '../components/stylesheets/newscasts/newscasts'
+import Header from "../components/Header"
 
 const Newscasts = () => {
   const [newscasts, setNewscasts] = useState([]);
@@ -26,14 +21,7 @@ const Newscasts = () => {
 
   return (
     <div>
-      <header className="header">
-        <div className="container">
-          <div className="header__inner">
-            <Link to="/" className="header__home">Home</Link>
-            <Link to="/admins/sign_in" className="header__admin">Admin</Link>
-          </div>
-        </div>
-      </header>
+      <Header />
       <div className="intro">
         <div className="container">
           <div className="intro__inner">
@@ -44,7 +32,7 @@ const Newscasts = () => {
                   <div className="intro__item">
                     <div className='intro-time'>
                       <time>{format(Date.parse(newscast.attributes.created_at), 'dd/MM/yyyy')}</time>
-                      <h2 className="intro-item__title">{newscast.attributes.title}</h2>
+                      <Link to={`./newscasts/${newscast.attributes.id}`} className="header__home">{newscast.attributes.title}</Link>
                     </div>
                     <p>{newscast.attributes.description}</p>
                     <div className="intro-item__image"><img src={newscast.attributes.image} alt="img" /></div>

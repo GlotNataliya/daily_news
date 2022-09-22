@@ -9,9 +9,10 @@ class NewscastsController < ApplicationController
 
   def show
     @newscast = Newscast.find(params[:id])
+
     respond_to do |format|
       format.html
-      format.json { render json: NewscastSerializer.new(@newscast).serializable_hash[:data], status: :ok }
+      format.json { render json: NewscastSerializer.new(@newscast).serializable_hash[:data][:attributes], status: :ok }
     end
   end
 end

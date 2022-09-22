@@ -1,18 +1,20 @@
 Rails.application.routes.draw do
+  root 'newscasts#index'
+
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',
     registrations: 'admins/registrations'
   }
 
-  root 'newscasts#index'
-
   namespace :admin_user do
-    # root 'admin_user/newscasts#index'
-
     resources :newscasts
   end
 
   resources :newscasts, only: %i[index show]
 
-  match '*path', to: 'newscasts#index', via: :all
+  get '*path', to: 'newscasts#index', via: :all
+
+  # get '*path', to: redirect('/'), constraints: lambda { |req|
+  #   req.path.exclude? 'rails/active_storage'
+  # }
 end

@@ -67,7 +67,7 @@ module AdminUser
 
       # Only allow a list of trusted parameters through.
       def newscast_params
-        params.require(:newscast).permit(:title, :description, :image)
+        params.require(:newscast).permit(:title, :description, :image, :attachment)
       end
   end
 end

@@ -27,29 +27,35 @@
 
   <tbody>
     <% @newscasts.each do |newscast| %>
-      <tr>
-        <td>
+      <tr id="options" data-controller="visibility">
+        <td data-visibility-target="hideable">
           <%= newscast.created_at %>
         </td>
-        <td>
+        <td data-visibility-target="hideable">
           <%= newscast.title %>
         </td>
-        <td>
+        <td data-visibility-target="hideable">
           <%= newscast.description %>
         </td>
-        <td>
-          <% if newscast.image.attached? %>
-            <%= image_tag newscast.image, style: "width: 200px" %>
+        <td data-visibility-target="hideable">
+          <% if newscast.image_url %>
+            <%= image_tag newscast.image_url, style: "width: 200px" %>
           <% end %>
         </td>
-        <td>
+        <td data-visibility-target="hideable">
           <%= link_to 'Show', admin_user_newscast_path(newscast) %>
         </td>
-        <td>
+        <td data-visibility-target="hideable">
           <%= link_to 'Edit', edit_admin_user_newscast_path(newscast) %>
         </td>
-        <td>
+        <td data-visibility-target="hideable">
           <%= link_to 'Destroy', admin_user_newscast_path(newscast), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+        <td data-visibility-target="hideable">
+          <button data-action="visibility#hideTargets">Hide newscast</button>
+        </td>
+        <td>
+          <button data-action="visibility#toggleTargets">Show newscast</button>
         </td>
       </tr>
       <% end %>

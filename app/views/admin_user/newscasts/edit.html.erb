@@ -2,5 +2,5 @@
 
 <%= render 'form' , newscast: @newscast %>
 
-  <%= link_to 'Show' , @newscast %> |
-    <%= link_to 'Back' , newscasts_path %>
+  <%= link_to 'Show' , [ :admin_user, @newscast ] %> |
+  <%= link_to 'Back' , admin_user_newscasts_path %>
